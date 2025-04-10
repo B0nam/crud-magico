@@ -1,4 +1,4 @@
-package com.bonam.crud_magico;
+package com.bonam.crudmagico;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

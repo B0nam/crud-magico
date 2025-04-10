@@ -1,4 +1,4 @@
-package com.bonam.crud_magico;
+package com.bonam.crudmagico;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
