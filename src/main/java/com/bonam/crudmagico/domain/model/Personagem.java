@@ -2,16 +2,16 @@ package com.bonam.crudmagico.domain.model;
 
 import com.bonam.crudmagico.domain.types.ClassePersonagem;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.hibernate.engine.internal.Cascade;
+import lombok.*;
 
 import java.util.List;
 
 @Entity(name = "PERSONAGEM")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
+@Builder
 public class Personagem {
 
     @Id
