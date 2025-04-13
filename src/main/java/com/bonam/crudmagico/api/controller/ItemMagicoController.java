@@ -7,12 +7,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/item")
 @RequiredArgsConstructor
 public class ItemMagicoController {
 
-    private final ItemMagicoService itemMagicoService;  // Injeção do service
+    private final ItemMagicoService itemMagicoService;
+
+    @GetMapping
+    public ResponseEntity<List<ItemMagicoDTO>> getAllItems() {
+        return ResponseEntity.ok(itemMagicoService.getAll());
+    }
+
+    @GetMapping("/buscar/{nomeItem}")
+    public ResponseEntity<List<ItemMagicoDTO>> searchByName(@PathVariable String nomeItem) {
+        return ResponseEntity.ok(itemMagicoService.searchByName(nomeItem));
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<ItemMagicoDTO> getItemMagico(@PathVariable Long id) {

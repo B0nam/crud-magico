@@ -10,11 +10,27 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ItemMagicoService {
 
     private final ItemMagicoRepository itemMagicoRepository;
+
+    public List<ItemMagicoDTO> getAll() {
+        return itemMagicoRepository.findAll()
+                .stream()
+                .map(ItemMagicoDTOAssembler::toDto)
+                .toList();
+    }
+
+    public List<ItemMagicoDTO> searchByName(String nome) {
+        return itemMagicoRepository.findByNomeContainingIgnoreCase(nome)
+                .stream()
+                .map(ItemMagicoDTOAssembler::toDto)
+                .toList();
+    }
 
     public ItemMagicoDTO getItemMagicoById(Long id) {
         return itemMagicoRepository.findById(id)

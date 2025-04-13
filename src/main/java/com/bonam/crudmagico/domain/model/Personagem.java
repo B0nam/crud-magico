@@ -26,7 +26,7 @@ public class Personagem {
     @Column(name = "CLASSE_PERSONAGEM")
     private ClassePersonagem classePersonagem;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "personagem", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemMagico> itensMagicos;
 
     @Column(name = "LEVEL")

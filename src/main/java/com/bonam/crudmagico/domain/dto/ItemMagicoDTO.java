@@ -12,4 +12,5 @@ public class ItemMagicoDTO {
     private TipoItem tipoItem;
     private Integer forca;
     private Integer defesa;
+    private Long personagemId;
 }

@@ -1,17 +1,13 @@
 package com.bonam.crudmagico.domain.model;
 
 import com.bonam.crudmagico.domain.types.TipoItem;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity(name = "ITEM_MAGICO")
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Setter
 @Getter
 public class ItemMagico {
@@ -30,4 +26,8 @@ public class ItemMagico {
 
     @Column(name = "DEFESA")
     private Integer defesa;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "personagem_id")
+    private Personagem personagem;
 }
