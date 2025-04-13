@@ -12,7 +12,7 @@ public class PersonagemDTOAssembler {
                 .nome(personagem.getNome())
                 .nomeAventureiro(personagem.getNomeAventureiro())
                 .classePersonagem(personagem.getClassePersonagem())
-                .itensMagicos(personagem.getItensMagicos())
+                .itensMagicos(personagem.getItensMagicos().stream().map(ItemMagicoDTOAssembler::toDto).toList())
                 .level(personagem.getLevel())
                 .forca(personagem.getForca())
                 .defesa(personagem.getDefesa())
